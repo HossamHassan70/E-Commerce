@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets//8548382-ai (1).png" alt="Logo" />
+        <span>Monuments</span>
+      </div>
+
+      <nav>
+        <ul
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <li data-page="home">Home</li>
+          <li data-page="about">About</li>
+          <li data-page="contact">Contact</li>
+          <li data-page="users-list">Users List</li>
+          <li data-page="admin-panel">Admin..?</li>
+          <li class="auth-buttons"></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Login Page  -->
+    <div class="page login disabled">
+      <h1>Login Page</h1>
+      <form>
+        <input
+          type="text"
+          id="email"
+          placeholder="Email"
+          class="input"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          class="input"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <!-- Register Page  -->
+    <div class="page register disabled">
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #f1f1f1;
+        "
+      >
+        <form
+          method="POST"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 2rem 4rem;
+          "
+        >
+          <h2>Register</h2>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+            class="input"
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            required
+            class="input"
+          />
+          <input
+            type="text"
+            name="job"
+            placeholder="Job"
+            required
+            class="input"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            class="input"
+            required
+          />
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+            "
+          >
+            <input type="checkbox" name="admin" id="isAdmin" />
+            <label> Admin </label>
+          </div>
+          <!-- <div class="errors"></div> -->
+          <button type="submit">Register</button>
+          <a
+            href="#login  "
+            style="
+              text-decoration: none;
+              color: #333;
+              font-size: 0.8rem;
+              margin-top: 1rem;
+            "
+          >
+            Login
+          </a>
+        </form>
+      </div>
+    </div>
+
+    <!-- Home Page  -->
+    <div class="page home active">
+      <h1>Home Page</h1>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+      <button data-page="add-product">Add Product</button>
+      <div class="products-list"></div>
+    </div>
+
+    <!-- User List Page-->
+    <div class="page users-list disabled">
+      <h1>Users List</h1>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+      <button data-page="add-product">Add Product</button>
+      <ul class="users-list"></ul>
+    </div>
+
+    <!-- Products List Page  -->
+    <div class="page products-list disabled">
+      <h1>Products List</h1>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+      <button data-page="add-product">Add Product</button>
+    </div>
+
+    <!-- Add Product Page  -->
+    <div class="page add-product disabled">
+      <h1>Add Product</h1>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="contact">Contact</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+      <form method="POST">
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+          class="input"
+        />
+        <input
+          type="text"
+          name="image"
+          placeholder="Image"
+          required
+          class="input"
+        />
+        <select name="category" id="category" required>
+          <option>choose</option>
+        </select>
+        <input
+          type="text"
+          name="price"
+          placeholder="Price"
+          required
+          class="input"
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          class="input"
+          required
+        />
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Quantity"
+          required
+          class="input"
+        />
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+
+    <!-- About Page  -->
+    <div class="page about disabled">
+      <h1>About Page</h1>
+      <button data-page="home">Home</button>
+      <button data-page="contact">Contact</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+    </div>
+
+    <!-- Contact Page  -->
+    <div class="page contact disabled">
+      <h1>Contact Page</h1>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="page admin-panel disabled">
+      <h1>Admin Panel</h1>
+      <button data-page="home">Home</button>
+      <button data-page="about">About</button>
+      <button data-page="users-list">Users List</button>
+      <button data-page="login">Login</button>
+      <button data-page="register">Add User</button>
+      <div class="not-admin"></div>
+      <div class="admin">
+        <!-- categories -->
+        <div>
+          <h4>Categories</h4>
+
+          <form method="POST" class="add-category">
+            <p>Add category</p>
+            <input
+              type="text"
+              id="category-name"
+              name="name"
+              placeholder="Category Name"
+              class="input"
+            />
+            <button type="submit">Add Category</button>
+          </form>
+
+          <div
+            class="categories-list"
+            style="display: flex; flex-direction: column"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.js"
+      integrity="sha512-yyr/AZnf9KbRjIKQpglQyZeyz2sOJCa0bcAt+qBnY/jfatfojXGz3eymOoZisKcIv9P49K/PzSJwdL5dwOfgGQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
