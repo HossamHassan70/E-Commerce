@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "name": "Hossam",
+      "email": "hosam@gmail.com",
+      "job": "FullStack",
+      "password": "123456",
+      "admin": true,
+      "id": 1
+    },
+    {
+      "name": "hamada",
+      "email": "hamada@gmail.com",
+      "job": "Office boy ",
+      "password": "123456",
+      "admin": false,
+      "id": 3
+    },
+    {
+      "name": "Momen Khaled",
+      "email": "momen@gmail.com",
+      "job": "Office boy ",
+      "password": "123456",
+      "admin": true,
+      "id": 4
+    },
+    {
+      "name": "Ahmed Khaled",
+      "email": "ahmed@gmail.com",
+      "job": "Backend",
+      "password": "A@a12345678",
+      "admin": false,
+      "id": 5
+    },
+    {
+      "name": "Hazem Khaled",
+      "email": "hazem@gmail.com",
+      "job": "Embbeded",
+      "password": "Hazem@1234",
+      "admin": false,
+      "id": 6
+    },
+    {
+      "name": "ali",
+      "email": "ali@email.com",
+      "job": "office boy",
+      "password": "#258165HhO",
+      "admin": false,
+      "id": 7
+    }
+  ],
+  "products": [
+    {
+      "name": "Dish Washer ",
+      "image": "https://unsplash.com",
+      "category": "Electonics ",
+      "price": "5000",
+      "description": "A dish washer",
+      "quantity": "13",
+      "id": 1
+    },
+    {
+      "name": "PC",
+      "image": "https://pCIMAGES.com",
+      "category": "Clothes ",
+      "price": "150000",
+      "description": "a PC with core i7 and 16 gb RAM and 256 ROM",
+      "quantity": "7",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Clothes ",
+      "id": 2
+    },
+    {
+      "name": "Food ",
+      "id": 3
+    },
+    {
+      "name": "Furniture ",
+      "id": 4
+    },
+    {
+      "name": "People",
+      "id": 5
+    }
+  ]
+
+}

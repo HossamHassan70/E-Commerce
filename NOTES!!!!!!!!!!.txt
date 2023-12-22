@@ -1,0 +1,3 @@
+to run the api server for the database.json file open the terminal and run this command 
+
+json-server --watch db.json --port 3000
