@@ -1,3 +1,18 @@
 to run the api server for the database.json file open the terminal and run this command 
 
+if you have npm command continue with stept :
+else you should download it by type this command:
+
+sudo apt install npm
+
+After that on api directory type this command:
+npm i
+after download json-server as global by type this command:
+sudo npm install -g json-server
+
+Finally to run api type this command:
+npx json-server --watch db.json
+
+
+
 json-server --watch db.json --port 3000
