@@ -17,10 +17,12 @@
         <ul
           style="
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            gap: 1rem;
           "
         >
+          <li data-page="admin-panel"></li>
           <li data-page="home">Home</li>
           <li data-page="about">About</li>
           <li data-page="contact">Contact</li>
@@ -29,35 +31,69 @@
       </nav>
     </header>
 
+    <!-- Login Page  -->
     <div class="app-wrapper">
-      <!-- Login Page  -->
       <div class="page login disabled">
-        <div class="form-wrapper">
-          <form method="POST" class="auth-form-style">
-            <h1>Login Page</h1>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+          "
+        >
+          <form method="POST" class="login-form">
+            <h2>Login</h2>
+
             <input
               type="text"
-              id="email"
+              name="email"
               placeholder="Email"
-              class="input"
               required
+              class="input"
             />
+
             <input
               type="password"
-              id="password"
+              name="password"
               placeholder="Password"
               class="input"
               required
             />
+
+            <!-- <div class="errors"></div> -->
             <button type="submit">Login</button>
+            <p style="color: #333; font-size: 0.8rem; margin-top: 1rem">
+              if you don't have an account
+              <a href="#register" style="text-decoration: none"> Register </a>
+            </p>
           </form>
         </div>
       </div>
 
       <!-- Register Page  -->
       <div class="page register disabled">
-        <div class="form-wrapper">
-          <form method="POST" class="auth-form-style">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f1f1f1;
+          "
+        >
+          <form
+            method="POST"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 1rem;
+              background-color: white;
+              border-radius: 0.5rem;
+              padding: 2rem 4rem;
+            "
+          >
             <h2>Register</h2>
             <input
               type="text"
@@ -100,37 +136,12 @@
             </div>
             <!-- <div class="errors"></div> -->
             <button type="submit">Register</button>
-            <a
-              href="#login"
-              style="
-                text-decoration: none;
-                color: #333;
-                font-size: 0.8rem;
-                margin-top: 1rem;
-              "
-            >
-              Login
-            </a>
+            <p style="color: #333; font-size: 0.8rem; margin-top: 1rem">
+              if you actually have an account
+              <a href="#login" style="text-decoration: none"> Login </a>
+            </p>
           </form>
         </div>
-      </div>
-
-      <!-- Home Page  -->
-      <div class="page home active">
-        <div class="cart-list"></div>
-
-        <h2>Products</h2>
-        <div
-          class="products-list"
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            background-color: #ffff;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            gap: 1rem;
-          "
-        ></div>
       </div>
 
       <!-- About Page  -->
@@ -156,8 +167,8 @@
             "
           >
             <div class="add-category"></div>
-            <div class="categories-list section-styling"></div>
-            <div class="users-list section-styling"></div>
+            <div class="categories-list"></div>
+            <div class="users-list"></div>
           </div>
           <div
             style="
@@ -167,31 +178,15 @@
               width: 100%;
             "
           >
-            <div class="orders-list section-styling"></div>
             <div class="add-product"></div>
+
+            <div>
+              <div
+                class="products-list"
+                style="display: flex; gap: 1rem; flex-wrap: wrap"
+              ></div>
+            </div>
           </div>
-        </div>
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 3rem;
-          "
-        >
-          <h2>Products</h2>
-          <div
-            class="admin-products-list"
-            style="
-              display: flex;
-              flex-wrap: wrap;
-              background-color: #ffff;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              gap: 1rem;
-            "
-          ></div>
         </div>
       </div>
     </div>
