@@ -1,257 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="style2.css" />
-  <link rel="stylesheet" href="style.css" />
-  
-</head>
-
-<body>
-  <header>
-    <div class="logo">
-      <img src="./assets/8548382-ai (1).png" alt="Logo" />
-      <span>Monuments</span>
-    </div>
-
-    <nav>
-      <ul>
-        <li data-page="home" style="cursor: pointer;">Home</li>
-        <li data-page="about" style="cursor: pointer;">About</li>
-        <li data-page="contact" style="cursor: pointer;">Contact</li>
-        <li data-page="users-list" style="cursor: pointer;">Users List</li>
-        <li data-page="admin-panel" style="cursor: pointer;">Admin..?</li>
-        <li data-page="cart" style="cursor: pointer;">Cart</li>
-        <li data-page="wishlist" style="cursor: pointer;">wishlist</li>
-        <li data-page="orders" style="cursor: pointer;">Orders</li>
-        <li class="auth-buttons" style="cursor: pointer;"></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Login Page  -->
-  <div class="page login disabled">
-    <h1>Login Page</h1>
-    <form>
-      <input type="text" id="email" placeholder="Email" class="input" required />
-      <input type="password" id="password" placeholder="Password" class="input" required />
-      <button type="submit">Login</button>
-    </form>
-  </div>
-
-  <!-- Register Page  -->
-  <div class="page register disabled">
-    <div style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          background-color: #f1f1f1;
-        ">
-      <form method="POST" style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            background-color: white;
-            border-radius: 0.5rem;
-            padding: 2rem 4rem;
-          ">
-        <h2>Register</h2>
-        <input type="text" name="name" placeholder="Name" required class="input" />
-        <input type="text" name="email" placeholder="Email" required class="input" />
-        <input type="text" name="job" placeholder="Job" required class="input" />
-        <input type="password" name="password" placeholder="Password" class="input" required />
-        <div style="
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai&family=Bitter:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets//8548382-ai (1).png" alt="Logo" />
+        <span>Monuments</span>
+        <nav>
+          <ul
+            style="
               display: flex;
+              justify-content: space-between;
               align-items: center;
-              justify-content: center;
-              gap: 1rem;
-            ">
-          <input type="checkbox" name="admin" id="isAdmin" />
-          <label> Admin </label>
+            "
+          >
+            <div
+              style="display: flex; justify-content: space-between; gap: 1rem"
+            >
+              <li class="header-item" data-page="home">Home</li>
+              <li class="header-item" data-page="about">About</li>
+              <li class="header-item" data-page="contact">Contact</li>
+            </div>
+          </ul>
+        </nav>
+      </div>
+
+      <nav>
+        <ul
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <li class="auth-buttons"></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="app-wrapper">
+      <!-- The Modal -->
+      <div class="overlay" id="cart-modal">
+        <div class="modal">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              padding: 1rem;
+              align-items: center;
+            "
+          >
+            <h2>Your Cart</h2>
+            <span onclick="closeModal()" class="close">&times;</span>
+          </div>
+          <div class="cart-list"></div>
         </div>
-        <!-- <div class="errors"></div> -->
-        <button type="submit">Register</button>
-        <a href="#login  " style="
-              text-decoration: none;
-              color: #333;
-              font-size: 0.8rem;
-              margin-top: 1rem;
-            ">
-          Login
-        </a>
-      </form>
-    </div>
-  </div>
-
-  <!-- Home Page  -->
-  <div class="page home active">
-    <h1>Home Page</h1>
-    <button data-page="about">About</button>
-    <button data-page="contact">Contact</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-    <button data-page="add-product">Add Product</button>
-
-    <div class="products-container">
-      <div class="product-filter">
-        <label for="filter">Select Category:</label>
-        <select id="filter">
-          <option value="All">All Categories</option>
-
-        </select>
       </div>
 
-      <div class="products-list">
+      <!-- Login Page  -->
+      <div class="page login disabled">
+        <div class="form-wrapper">
+          <form method="POST" class="auth-form-style">
+            <h1>Login Page</h1>
 
+            <input
+              type="text"
+              id="email"
+              placeholder="Email"
+              class="input"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              class="input"
+              required
+            />
+            <button type="submit" class="button">Login</button>
+
+            <span
+              style="
+                text-decoration: none;
+                color: #333;
+                font-size: 0.8rem;
+                margin-top: 1rem;
+              "
+            >
+              Don't Have an Account?
+              <a href="#register"> Register </a>
+            </span>
+          </form>
+        </div>
+      </div>
+
+      <!-- Register Page  -->
+      <div class="page register disabled">
+        <div class="form-wrapper">
+          <form method="POST" class="auth-form-style">
+            <h2>Register</h2>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              class="input"
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              required
+              class="input"
+            />
+            <input
+              type="text"
+              name="job"
+              placeholder="Job"
+              required
+              class="input"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              class="input"
+              required
+            />
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+              "
+            >
+              <div class="checkbox-wrapper-31">
+                <input type="checkbox" name="admin" id="isAdmin" />
+                <svg viewBox="0 0 35.6 35.6">
+                  <circle
+                    class="background"
+                    cx="17.8"
+                    cy="17.8"
+                    r="17.8"
+                  ></circle>
+                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                  <polyline
+                    class="check"
+                    points="11.78 18.12 15.55 22.23 25.17 12.87"
+                  ></polyline>
+                </svg>
+              </div>
+              <label> Admin </label>
+
+              <div class="checkbox-wrapper-31">
+                <input
+                  type="checkbox"
+                  name="customer"
+                  id="isCustomer"
+                  required
+                />
+                <svg viewBox="0 0 35.6 35.6">
+                  <circle
+                    class="background"
+                    cx="17.8"
+                    cy="17.8"
+                    r="17.8"
+                  ></circle>
+                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                  <polyline
+                    class="check"
+                    points="11.78 18.12 15.55 22.23 25.17 12.87"
+                  ></polyline>
+                </svg>
+              </div>
+              <label> Customer </label>
+            </div>
+            <!-- <div class="errors"></div> -->
+            <button type="submit" class="button">Register</button>
+            <span
+              style="
+                text-decoration: none;
+                color: #333;
+                font-size: 0.8rem;
+                margin-top: 1rem;
+              "
+            >
+              Already Have an Account?
+              <a href="#login"> Login </a>
+            </span>
+          </form>
+        </div>
+      </div>
+
+      <!-- Home Page  -->
+      <div class="page home active">
+        <h2>Products</h2>
+
+        <div class="filters"></div>
+
+        <div
+          class="products-list"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #ffff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            gap: 1rem;
+          "
+        ></div>
+      </div>
+
+      <!-- About Page  -->
+      <div class="page about disabled" style="font-family: Nunito, sans-serif">
+        <div class="responsive-container-block bigContainer">
+          <div class="responsive-container-block Container">
+            <p class="text-blk heading">About Us</p>
+            <p class="text-blk subHeading">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu
+            </p>
+            <div class="social-icons-container">
+              <a
+                class="social-icon"
+                href="https://www.facebook.com/"
+                target="_blank"
+              >
+                <img
+                  class="socialIcon image-block"
+                  src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb33.png"
+                />
+              </a>
+              <a
+                class="social-icon"
+                href="https://www.linkedin.com/"
+                target="_blank"
+              >
+                <img
+                  class="socialIcon image-block"
+                  src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb34.png"
+                />
+              </a>
+              <a
+                class="social-icon"
+                href="https://www.instagram.com/"
+                target="_blank"
+              >
+                <img
+                  class="socialIcon image-block"
+                  src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb35.png"
+                />
+              </a>
+              <a
+                class="social-icon"
+                href="https://twitter.com/"
+                target="_blank"
+              >
+                <img
+                  class="socialIcon image-block"
+                  src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb36.png"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Page  -->
+      <div class="page contact disabled">
+        <div class="container">
+          <div class="content">
+            <div class="left-side">
+              <div class="address details">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="topic">Address</div>
+                <div class="text-one">Surkhet, NP12</div>
+                <div class="text-two">Birendranagar 06</div>
+              </div>
+              <div class="phone details">
+                <i class="fas fa-phone-alt"></i>
+                <div class="topic">Phone</div>
+                <div class="text-one">+0098 9893 5647</div>
+                <div class="text-two">+0096 3434 5678</div>
+              </div>
+              <div class="email details">
+                <i class="fas fa-envelope"></i>
+                <div class="topic">Email</div>
+                <div class="text-one">codinglab@gmail.com</div>
+                <div class="text-two">info.codinglab@gmail.com</div>
+              </div>
+            </div>
+            <div class="right-side">
+              <div class="topic-text">Send us a message</div>
+              <p>
+                If you have any work from me or any types of quries related to
+                my tutorial, you can send me message from here. It's my pleasure
+                to help you.
+              </p>
+              <form action="#">
+                <div class="input-box">
+                  <input type="text" placeholder="Enter your name" />
+                </div>
+                <div class="input-box">
+                  <input type="text" placeholder="Enter your email" />
+                </div>
+                <div class="input-box message-box"></div>
+                <div class="button">
+                  <input type="button" value="Send Now" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Page -->
+      <div class="page profile disabled">
+        <div class="profile-wrapper">
+          <div class="profile-card">
+            <div class="profile-image"></div>
+            <div class="profile-details">
+              <h2 class="profile-name"></h2>
+              <h3 class="profile-job"></h3>
+              <h3 class="profile-email"></h3>
+            </div>
+          </div>
+          <div class="profile-orders">
+            <div class="orders-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin Panel -->
+      <div class="page admin-panel disabled">
+        <h1>Admin Panel</h1>
+        <div style="display: flex; justify-content: space-between; gap: 3rem">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              width: 100%;
+            "
+          >
+            <div class="add-category"></div>
+            <div class="categories-list section-styling"></div>
+            <div class="users-list section-styling"></div>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              width: 100%;
+            "
+          >
+            <div class="admin-orders-list section-styling"></div>
+            <div class="add-product"></div>
+          </div>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 3rem;
+          "
+          class="category-card"
+        >
+          <h2>Products</h2>
+          <div
+            class="admin-products-list"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              padding: 1rem;
+              border-radius: 0.5rem;
+              gap: 1rem;
+              justify-content: center;
+            "
+          ></div>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- User List Page-->
-  <div class="page users-list disabled">
-    <h1>Users List</h1>
-    <button data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="contact">Contact</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-    <button data-page="add-product">Add Product</button>
-    <ul class="users-list"></ul>
-  </div>
-
-  <!-- Products List Page  -->
-  <div class="page products-list disabled">
-    <h1>Products List</h1>
-    <button data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="contact">Contact</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-    <button data-page="add-product">Add Product</button>
-  </div>
-
-  <!-- Add Product Page  -->
-  <div class="page add-product disabled">
-    <h1>Add Product</h1>
-    <button data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="contact">Contact</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-    <form method="POST">
-      <input type="text" name="name" placeholder="Name" required class="input" />
-      <input type="text" name="image" placeholder="Image" required class="input" />
-      <select name="category" id="category" required>
-        <option>choose</option>
-      </select>
-      <input type="text" name="price" placeholder="Price" required class="input" />
-      <input type="text" name="description" placeholder="Description" class="input" required />
-      <input type="number" name="quantity" placeholder="Quantity" required class="input" />
-      <button type="submit">Add Product</button>
-    </form>
-  </div>
-
-  <!-- About Page  -->
-  <div class="page about disabled">
-    <h1>About Page</h1>
-    <button data-page="home">Home</button>
-    <button data-page="contact">Contact</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-
-  </div>
-
-  <!-- Contact Page  -->
-  <div class="page contact disabled">
-    <h1>Contact Page</h1>
-    <button data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-  </div>
-
-  <!-- Admin Panel -->
-  <div class="page admin-panel disabled">
-    <h1>Admin Panel</h1>
-    <button data-page="home">Home</button>
-    <button data-page="about">About</button>
-    <button data-page="users-list">Users List</button>
-    <button data-page="login">Login</button>
-    <button data-page="register">Add User</button>
-
-
-    <div class="not-admin">
-
-
-    </div>
-
-    <div class="admin">
-      <!-- categories -->
-      <div>
-        <h4>Categories</h4>
-
-        <form method="POST" class="add-category">
-          <p>Add category</p>
-          <input type="text" id="category-name" name="name" placeholder="Category Name" class="input" />
-          <button type="submit">Add Category</button>
-        </form>
-        <label for="category-select">Select Category:</label>
-        <select id="category-select">
-          <option value="All">All Categories</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Clothes">Clothes</option>
-          <!-- Add more options as needed -->
-        </select>
-
-        <div class="categories-list" style="display: flex; flex-direction: column"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.js"
+      integrity="sha512-yyr/AZnf9KbRjIKQpglQyZeyz2sOJCa0bcAt+qBnY/jfatfojXGz3eymOoZisKcIv9P49K/PzSJwdL5dwOfgGQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <footer class="footer">
+      <div class="social">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-snapchat"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
       </div>
-    </div>
-  </div>
-
-  <div class="page cart">
-    <div id="cart-container">
-   
-    </div>
-  </div>
-
-  <div class="page wishlist">
-    <div id="wishlist-container">
-
-    </div>
-  </div>
-
-  <div class="page orders">
-    <div id="order-container">
-      
-    </div>
-
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.js"
-    integrity="sha512-yyr/AZnf9KbRjIKQpglQyZeyz2sOJCa0bcAt+qBnY/jfatfojXGz3eymOoZisKcIv9P49K/PzSJwdL5dwOfgGQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-  <script type="module" src="/networkConfig.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="module" src="/products.js" crossorigin="anonymous" referrerpolicy="no-referrer">
-  </script>
-  <script type="module" src="/script.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="text/javascript" src="/customerActions.js"> </script>
-  <script type="module" src="/wishlist.js"> </script>
-  <script type="module" src="/carts.js"> </script>
-  <script type="module" src="/orders.js"> </script>
-</body>
-
+      <ul class="list">
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Terms</a>
+        </li>
+        <li>
+          <a href="#">Privacy Policy</a>
+        </li>
+      </ul>
+      <p class="copyright">Future Coders @ 2021</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>

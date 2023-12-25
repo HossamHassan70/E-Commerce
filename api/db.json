@@ -9,38 +9,6 @@
       "id": 1
     },
     {
-      "name": "hamada",
-      "email": "hamada@gmail.com",
-      "job": "Office boy ",
-      "password": "123456",
-      "admin": false,
-      "id": 3
-    },
-    {
-      "name": "Momen Khaled",
-      "email": "momen@gmail.com",
-      "job": "Office boy ",
-      "password": "123456",
-      "admin": false,
-      "id": 4
-    },
-    {
-      "name": "Ahmed Khaled",
-      "email": "ahmed@gmail.com",
-      "job": "Backend",
-      "password": "A@a12345678",
-      "admin": false,
-      "id": 5
-    },
-    {
-      "name": "Hazem Khaled",
-      "email": "hazem@gmail.com",
-      "job": "Embbeded",
-      "password": "Hazem@1234",
-      "admin": false,
-      "id": 6
-    },
-    {
       "name": "Momen Khaled",
       "email": "momenk08@gmail.com",
       "job": "Freelancer",
@@ -49,50 +17,66 @@
       "id": 7
     },
     {
-      "name": "Ahmed Khaled ",
-      "email": "ahmed@mail.com",
-      "job": "Data engineer",
-      "password": "ahmed@A123",
+      "name": "Ali Mamdouh",
+      "email": "ali@gmail.com",
+      "job": "Backend",
+      "password": "Ali@2468",
       "admin": false,
       "id": 8
+    },
+    {
+      "name": "Mahmoud Ahmed",
+      "email": "hoda@gmail.com",
+      "job": "Freelancer",
+      "password": "Hoda@2468",
+      "admin": false,
+      "id": 9
+    },
+    {
+      "name": "Mahmoud Ahmed",
+      "email": "hoda@gmail.com",
+      "job": "Freelancer",
+      "password": "Hoda@2468",
+      "admin": false,
+      "id": 10
     }
   ],
   "products": [
     {
-      "name": "Dish Washer ",
-      "image": "https://picsum.photos/id/233/300/200",
-      "category": "Electonics ",
-      "price": "5000",
-      "description": "A dish washer",
-      "quantity": "13",
+      "name": "PC",
+      "image": "https://picsum.photos/id/230/300/200",
+      "category": "tech",
+      "price": "10000",
+      "description": "Core i7, 16 gb RAM ,265 ROM",
+      "quantity": "10",
       "id": 1
     },
     {
-      "name": "كولمن",
-      "image": "https://picsum.photos/id/235/300/200",
-      "category": "Furniture ",
-      "price": "29900",
-      "description": "كولمن حلو بيحافظ عالحاجه ساقعه",
-      "quantity": "20",
-      "id": 5
-    },
-    {
-      "name": "Hp Laptop",
-      "image": "https://picsum.photos/id/237/300/200",
+      "name": "Laptop",
+      "image": "https://picsum.photos/id/231/300/200",
       "category": "tech",
-      "price": "14000",
-      "description": "A good Laptop",
+      "price": "15000",
+      "description": "a very good laptop for designers",
       "quantity": "10",
-      "id": 7
+      "id": 2
     },
     {
-      "name": "Windows 10",
-      "image": "https://picsum.photos/id/238/300/200",
-      "category": "utils",
-      "price": "290",
-      "description": "windows 10 pro",
+      "name": "Sweet shirt",
+      "image": "https://picsum.photos/id/232/300/200",
+      "category": "Clothes ",
+      "price": "200",
+      "description": "good for the winter",
       "quantity": "10",
-      "id": 8
+      "id": 3
+    },
+    {
+      "name": "Green Paper",
+      "image": "https://picsum.photos/id/233/300/200",
+      "category": "Food ",
+      "price": "10",
+      "description": "a very green paper",
+      "quantity": "900",
+      "id": 4
     }
   ],
   "categories": [
@@ -119,58 +103,134 @@
   ],
   "orders": [
     {
-      "user_id": 1,
-      "forUser": "Hossam",
-      "product_id": 1,
-      "quantity": 1,
-      "id": 1,
-      "status": "Shipped",
-      "productName": "Dish Washer "
+      "user_id": 7,
+      "forUser": "Momen Khaled",
+      "products": [
+        {
+          "name": "A big house ",
+          "image": "https://picsum.photos/id/250/300/200",
+          "category": "Food ",
+          "price": "100000",
+          "description": "asdfghjkl.;",
+          "quantity": 1,
+          "id": 9
+        },
+        {
+          "name": "Hp Laptop",
+          "image": "https://picsum.photos/id/237/300/200",
+          "category": "tech",
+          "price": 14000,
+          "description": "A good Laptop",
+          "quantity": 1,
+          "id": 7
+        }
+      ],
+      "status": "delivered",
+      "total": 114000,
+      "id": 8
+    },
+    {
+      "user_id": 7,
+      "forUser": "Momen Khaled",
+      "products": [
+        {
+          "name": "Windows 10",
+          "image": "https://picsum.photos/id/238/300/200",
+          "category": "utils",
+          "price": 290,
+          "description": "windows 10 pro",
+          "quantity": 5,
+          "id": 8
+        }
+      ],
+      "status": "pending",
+      "total": 1450,
+      "id": 9
+    },
+    {
+      "user_id": 7,
+      "forUser": "Momen Khaled",
+      "products": [
+        {
+          "name": "Dish Washer ",
+          "image": "https://picsum.photos/id/233/300/200",
+          "category": "Electonics ",
+          "price": 5000,
+          "description": "A dish washer",
+          "quantity": 3,
+          "id": 1
+        }
+      ],
+      "status": "pending",
+      "total": 15000,
+      "id": 10
     },
     {
       "user_id": 1,
       "forUser": "Hossam",
-      "product_id": 3,
-      "quantity": 1,
-      "id": 2,
-      "status": "pending",
-      "productName": "غساله"
+      "products": [
+        {
+          "name": "كولمن",
+          "image": "https://picsum.photos/id/235/300/200",
+          "category": "Furniture ",
+          "price": 29900,
+          "description": "كولمن حلو بيحافظ عالحاجه ساقعه",
+          "quantity": 1,
+          "id": 5,
+          "user_id": 7
+        },
+        {
+          "name": "Dish Washer ",
+          "image": "https://picsum.photos/id/233/300/200",
+          "category": "Electonics ",
+          "price": 5000,
+          "description": "A dish washer",
+          "quantity": 3,
+          "id": 1,
+          "user_id": 1
+        }
+      ],
+      "status": "delivered",
+      "total": 44900,
+      "id": 11
     },
     {
       "user_id": 1,
       "forUser": "Hossam",
-      "product_id": 5,
-      "quantity": 1,
-      "id": 3,
+      "products": [
+        {
+          "name": "A big house ",
+          "image": "https://picsum.photos/id/250/300/200",
+          "category": "Food ",
+          "price": "100000",
+          "description": "asdfghjkl.;",
+          "quantity": 3,
+          "id": 9,
+          "user_id": 1
+        }
+      ],
       "status": "pending",
-      "productName": "كولمن"
+      "total": 300000,
+      "id": 12
     },
     {
-      "user_id": 1,
-      "forUser": "Hossam",
-      "product_id": 6,
-      "quantity": 1,
-      "id": 4,
-      "status": "pending",
-      "productName": "شسي"
-    },
-    {
-      "user_id": 1,
-      "forUser": "Hossam",
-      "product_id": 7,
-      "quantity": 1,
-      "id": 5,
-      "status": "pending",
-      "productName": "Hp Laptop"
-    },
-    {
-      "user_id": 1,
-      "forUser": "Hossam",
-      "product_id": 8,
-      "quantity": 1,
-      "id": 6,
-      "status": "pending",
-      "productName": "Windows 10"
+      "user_id": 10,
+      "forUser": "Mahmoud Ahmed",
+      "products": [
+        {
+          "name": "Green Paper",
+          "image": "https://picsum.photos/id/233/300/200",
+          "category": "Food ",
+          "price": "10",
+          "description": "a very green paper",
+          "quantity": 10,
+          "id": 4,
+          "user_id": 10
+        }
+      ],
+      "status": "cancelled",
+      "total": 100,
+      "id": 13
     }
   ]
 }
