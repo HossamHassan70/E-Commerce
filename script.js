@@ -652,23 +652,6 @@ const renderCategoriesList = () => {
   });
 };
 
-// Products Section ////////////////////////////////////////////////////////////////////
-
-// {
-//     "name": "Mahmoud Ahmed",
-//     "email": "hoda@gmail.com",
-//     "job": "Freelancer",
-//     "password": "Hoda@2468",
-//     "admin": false,
-//     "id": 10,
-//     "wishlist": []
-//   },
-// data schema
-// if user logged in add the product to wishlist in the database on user object and if clicked again remove it
-// if user not logged in alert to login
-// if user logged in and clicked on the wishlist button and the product is already in the wishlist remove it from the wishlist
-
-// add to wishlist
 
 // update product
 const updateProduct = (id) => {
@@ -887,11 +870,12 @@ const removeFromWishlist = (id) => {
     if (user.wishList.find((product) => product.id === id)) {
       // remove the product from the wishlist
       user.wishList = user.wishList.filter((product) => product.id !== id);
-    } else {
-      // add the product to the wishlist
-      const product = productsData.find((product) => product.id === id);
-      user.wishList.push(product);
-    }
+    } 
+    // else {
+    //   // add the product to the wishlist
+    //   const product = productsData.find((product) => product.id === id);
+    //   user.wishList.push(product);
+    // }
 
     // update the user data
     axios
