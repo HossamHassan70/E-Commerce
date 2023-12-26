@@ -29,6 +29,7 @@
 
 .page {
   min-height: 100vh;
+  padding: 0rem 3rem;
 }
 
 .header-item {
@@ -281,14 +282,13 @@ nav a {
 /* animated button  */
 .button {
   cursor: pointer;
-
   font-size: 1rem;
   color: #333;
   border: 1px solid #333;
   border-radius: 0.5rem;
   background-color: transparent;
   font-weight: 400;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.3s cubic-bezier(0.19, 0.99, 0.32, 1);
   overflow: hidden;
   padding: 0.5rem 1.5rem;
 }
@@ -640,7 +640,6 @@ strong {
 }
 
 .icon path {
-  fill: #333;
   transition: 0.2s linear;
 }
 
@@ -662,23 +661,24 @@ strong {
 .card {
   padding: 0.8rem;
   background: #fff;
-  overflow: visible;
-  border-radius: 0.5rem;
 
+  border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px 0px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  width: 20rem;
 }
 
 .card-img {
   background-color: #ffcaa6;
-  height: 40%;
+  height: 12rem;
   width: 100%;
   border-radius: 0.5rem;
   transition: 0.3s ease;
-}
-
-.card-info {
-  padding-top: 10%;
 }
 
 .svg-icon {
@@ -693,6 +693,82 @@ strong {
   align-items: center;
   padding: 0.5rem 0rem;
   border-top: 1px solid #3333333a;
+}
+
+.card-for-footer {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+}
+
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: 0.3s;
+}
+
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: 0.3s;
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: #128c7e;
+  transition-duration: 0.3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /*Text*/
@@ -840,6 +916,15 @@ a {
   object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.contact-section {
+  padding: 0rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .text-blk {
@@ -1025,11 +1110,12 @@ a {
 }
 
 .container {
-  width: 85%;
+  width: 50%;
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 5rem;
 }
 
 .container .content {
@@ -1039,14 +1125,12 @@ a {
 }
 
 .container .content .left-side {
-  width: 25%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-  position: relative;
+  /* position: relative; */
 }
 
 .content .left-side::before {
@@ -1083,14 +1167,13 @@ a {
 }
 
 .container .content .right-side {
-  width: 75%;
   margin-left: 75px;
 }
 
 .content .right-side .topic-text {
   font-size: 23px;
   font-weight: 600;
-  color: #3e2093;
+  color: #333;
 }
 
 .right-side .input-box {
@@ -1120,27 +1203,22 @@ a {
   padding-top: 6px;
 }
 
-.right-side .button {
+.right-side .contact-button {
   display: inline-block;
   margin-top: 12px;
 }
 
-.right-side .button input[type="button"] {
+.right-side .contact-button input[type="button"] {
   color: #fff;
   font-size: 18px;
   outline: none;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
-  background: #3e2093;
+  background: #333;
   cursor: pointer;
-  transition: all 0.3s ease;
   width: inherit;
   height: inherit;
-}
-
-.button input[type="button"]:hover {
-  background: #5029bc;
 }
 
 @media (max-width: 950px) {
@@ -1187,6 +1265,10 @@ a {
 .footer {
   padding: 40px 0;
   background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer .social {

@@ -9,11 +9,13 @@ let productsRendered = false;
 let categoriesRendered = false;
 let adminPanelRendered = false;
 let profilePageRenderd = false;
+let registerPageRenderd = false;
 let cartRenderd = false;
 
 //////////////////////////////////////////////////////////////
 // Function to open the modal
 function openModal() {
+  renderCart();
   document.getElementById("cart-modal").style.display = "flex";
 }
 
@@ -22,13 +24,14 @@ function closeModal() {
   document.getElementById("cart-modal").style.display = "none";
 }
 
-function openOrderModal() {
-  document.getElementById("orders-modal").style.display = "flex";
+function openWishlistModal() {
+  renderWishlist();
+  document.getElementById("wishlist-modal").style.display = "flex";
 }
 
 // Function to close the modal
-function closeOrderModal() {
-  document.getElementById("orders-modal").style.display = "none";
+function closeWishlistModal() {
+  document.getElementById("wishlist-modal").style.display = "none";
 }
 
 ////////////////////////////////////////////
@@ -64,11 +67,18 @@ const showPage = (pageName) => {
     if (page.classList.contains(pageName)) {
       activatePage(page);
       if (pageName === "home") {
-        if (!productsRendered) renderProductsList();
+        if (!productsRendered) HomePage();
       } else if (pageName === "admin-panel") {
         if (!adminPanelRendered) renderAdminPanel();
       } else if (pageName === "profile") {
         if (!profilePageRenderd) renderProfilePage();
+      } else if (pageName === "register") {
+        if (!registerPageRenderd) {
+          const registerForm = document.querySelector(".register form");
+          registerForm.addEventListener("submit", Register);
+          // get the form
+          registerPageRenderd = true;
+        }
       }
     } else {
       deactivatePage(page);
@@ -205,7 +215,43 @@ const renderCart = () => {
         "
       >
         <button onclick="removeFromCart(${item.id})" class="button-delete">
-          <!-- ... existing code ... -->
+          <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 69 14"
+    class="svgIcon bin-top"
+  >
+    <g clip-path="url(#clip0_35_24)">
+      <path
+        fill="black"
+        d="M20.8232 2.62734L19.9948 4.21304C19.8224 4.54309 19.4808 4.75 19.1085 4.75H4.92857C2.20246 4.75 0 6.87266 0 9.5C0 12.1273 2.20246 14.25 4.92857 14.25H64.0714C66.7975 14.25 69 12.1273 69 9.5C69 6.87266 66.7975 4.75 64.0714 4.75H49.8915C49.5192 4.75 49.1776 4.54309 49.0052 4.21305L48.1768 2.62734C47.3451 1.00938 45.6355 0 43.7719 0H25.2281C23.3645 0 21.6549 1.00938 20.8232 2.62734ZM64.0023 20.0648C64.0397 19.4882 63.5822 19 63.0044 19H5.99556C5.4178 19 4.96025 19.4882 4.99766 20.0648L8.19375 69.3203C8.44018 73.0758 11.6746 76 15.5712 76H53.4288C57.3254 76 60.5598 73.0758 60.8062 69.3203L64.0023 20.0648Z"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_35_24">
+        <rect fill="white" height="14" width="69"></rect>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 69 57"
+    class="svgIcon bin-bottom"
+  >
+    <g clip-path="url(#clip0_35_22)">
+      <path
+        fill="black"
+        d="M20.8232 -16.3727L19.9948 -14.787C19.8224 -14.4569 19.4808 -14.25 19.1085 -14.25H4.92857C2.20246 -14.25 0 -12.1273 0 -9.5C0 -6.8727 2.20246 -4.75 4.92857 -4.75H64.0714C66.7975 -4.75 69 -6.8727 69 -9.5C69 -12.1273 66.7975 -14.25 64.0714 -14.25H49.8915C49.5192 -14.25 49.1776 -14.4569 49.0052 -14.787L48.1768 -16.3727C47.3451 -17.9906 45.6355 -19 43.7719 -19H25.2281C23.3645 -19 21.6549 -17.9906 20.8232 -16.3727ZM64.0023 1.0648C64.0397 0.4882 63.5822 0 63.0044 0H5.99556C5.4178 0 4.96025 0.4882 4.99766 1.0648L8.19375 50.3203C8.44018 54.0758 11.6746 57 15.5712 57H53.4288C57.3254 57 60.5598 54.0758 60.8062 50.3203L64.0023 1.0648Z"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_35_22">
+        <rect fill="white" height="57" width="69"></rect>
+      </clipPath>
+    </defs>
+  </svg>
         </button>
       </div>
     </div>
@@ -504,10 +550,7 @@ const deleteCategory = (id) => {
 };
 
 const AddCategory = (event) => {
-  event.preventDefault();
-
   const name = event.target.elements["name"].value;
-
   // name not empty
   if (name === "") {
     alert("Name is required");
@@ -533,6 +576,7 @@ const renderAddCategoryForm = () => {
       Add Category
     </h2>
     <form
+      onsubmit="event.preventDefault(); AddCategory(event)"
       style="
         display: flex;
         flex-direction: column;
@@ -609,6 +653,23 @@ const renderCategoriesList = () => {
 };
 
 // Products Section ////////////////////////////////////////////////////////////////////
+
+// {
+//     "name": "Mahmoud Ahmed",
+//     "email": "hoda@gmail.com",
+//     "job": "Freelancer",
+//     "password": "Hoda@2468",
+//     "admin": false,
+//     "id": 10,
+//     "wishlist": []
+//   },
+// data schema
+// if user logged in add the product to wishlist in the database on user object and if clicked again remove it
+// if user not logged in alert to login
+// if user logged in and clicked on the wishlist button and the product is already in the wishlist remove it from the wishlist
+
+// add to wishlist
+
 // update product
 const updateProduct = (id) => {
   const name = prompt("Enter the new name");
@@ -637,15 +698,13 @@ const updateProduct = (id) => {
     });
 };
 
-const AddProduct = (event) => {
-  event.preventDefault();
-
-  const name = event.target.elements["name"].value;
-  const image = event.target.elements["image"].value;
-  const category = event.target.elements["category"].value;
-  const price = event.target.elements["price"].value;
-  const description = event.target.elements["description"].value;
-  const quantity = event.target.elements["quantity"].value;
+const AddProduct = (ThisFromTheForm) => {
+  const name = ThisFromTheForm.elements["name"].value;
+  const image = ThisFromTheForm.elements["image"].value;
+  const category = ThisFromTheForm.elements["category"].value;
+  const price = ThisFromTheForm.elements["price"].value;
+  const description = ThisFromTheForm.elements["description"].value;
+  const quantity = ThisFromTheForm.elements["quantity"].value;
 
   const data = {
     name,
@@ -731,6 +790,7 @@ const renderAddProductForm = () => {
     Add Product
   </h2>
     <form
+    onsubmit="event.preventDefault(); AddProduct(this)"
       style="
         display: flex;
         flex-direction: column;
@@ -760,8 +820,7 @@ const renderAddProductForm = () => {
 `;
 };
 
-const renderProductsList = () => {
-  const productsList = document.querySelector(".products-list");
+const HomePage = () => {
   const filtersButton = document.querySelector(".filters");
 
   // create a select options that updates the list and filters data on the filters and rerenders the new list on change
@@ -779,8 +838,194 @@ const renderProductsList = () => {
   `;
   filtersButton.appendChild(select);
 
-  // get the category from the select value
-  const category = document.querySelector("#category").value;
+  // listen to the select change event
+  select.addEventListener("change", (event) => {
+    renderProductsList(event.target.value);
+  });
+  renderProductsList();
+
+  productsRendered = true;
+};
+
+// add to wishlist
+const addToWishlist = (id) => {
+  if (loggedUser) {
+    const user = userData.find((user) => user.id === loggedUser.id);
+
+    // check if the product with the id found on the user wish list or not
+    if (!user.wishList.find((product) => product.id === id)) {
+      // add the product to the wishlist
+      const product = productsData.find((product) => product.id === id);
+      user.wishList.push(product);
+
+      // update the user data
+      axios
+        .patch(`http://localhost:3000/users/${user.id}`, user)
+        .then((response) => {
+          alert(response.statusText);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    // if product found alert that the product already on the wishlist
+    else {
+      alert("Product already in the wishlist");
+    }
+  } else {
+    alert("Please login first");
+  }
+};
+
+// remove from wishlist
+const removeFromWishlist = (id) => {
+  if (loggedUser) {
+    const user = userData.find((user) => user.id === loggedUser.id);
+
+    // check if the product with the id found on the user wish list or not
+    if (user.wishList.find((product) => product.id === id)) {
+      // remove the product from the wishlist
+      user.wishList = user.wishList.filter((product) => product.id !== id);
+    } else {
+      // add the product to the wishlist
+      const product = productsData.find((product) => product.id === id);
+      user.wishList.push(product);
+    }
+
+    // update the user data
+    axios
+      .patch(`http://localhost:3000/users/${user.id}`, user)
+      .then((response) => {
+        alert(response.statusText);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    alert("Please login first");
+  }
+};
+
+const renderWishlist = () => {
+  const wishlist = document.querySelector(".wishlist");
+
+  wishlist.innerHTML = "";
+
+  if (loggedUser) {
+    const user = userData.find((user) => user.id === loggedUser.id);
+
+    if (user.wishList.length > 0) {
+      user.wishList.forEach((product) => {
+        const productDiv = document.createElement("div");
+        productDiv.className = "category-card";
+
+        productDiv.innerHTML = `
+              <div>
+                <p> Name: ${product.name} </p>
+                <p> Price: ${product.price} </p>
+                <p> Description: ${product.description} </p>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  gap:1rem;
+                "
+              >
+              <div class="card-button" onclick="addToCart(${product.id})">
+                <svg class="svg-icon" viewBox="0 0 20 20">
+                  <path d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z"></path>
+                  <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
+                  <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
+                </svg>
+              </div>    
+
+                <button onclick="
+                  removeFromWishlist(${product.id})
+                " class="button-delete">
+                  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 69 14"
+    class="svgIcon bin-top"
+  >
+    <g clip-path="url(#clip0_35_24)">
+      <path
+        fill="black"
+        d="M20.8232 2.62734L19.9948 4.21304C19.8224 4.54309 19.4808 4.75 19.1085 4.75H4.92857C2.20246 4.75 0 6.87266 0 9.5C0 12.1273 2.20246 14.25 4.92857 14.25H64.0714C66.7975 14.25 69 12.1273 69 9.5C69 6.87266 66.7975 4.75 64.0714 4.75H49.8915C49.5192 4.75 49.1776 4.54309 49.0052 4.21305L48.1768 2.62734C47.3451 1.00938 45.6355 0 43.7719 0H25.2281C23.3645 0 21.6549 1.00938 20.8232 2.62734ZM64.0023 20.0648C64.0397 19.4882 63.5822 19 63.0044 19H5.99556C5.4178 19 4.96025 19.4882 4.99766 20.0648L8.19375 69.3203C8.44018 73.0758 11.6746 76 15.5712 76H53.4288C57.3254 76 60.5598 73.0758 60.8062 69.3203L64.0023 20.0648Z"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_35_24">
+        <rect fill="white" height="14" width="69"></rect>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 69 57"
+    class="svgIcon bin-bottom"
+  >
+    <g clip-path="url(#clip0_35_22)">
+      <path
+        fill="black"
+        d="M20.8232 -16.3727L19.9948 -14.787C19.8224 -14.4569 19.4808 -14.25 19.1085 -14.25H4.92857C2.20246 -14.25 0 -12.1273 0 -9.5C0 -6.8727 2.20246 -4.75 4.92857 -4.75H64.0714C66.7975 -4.75 69 -6.8727 69 -9.5C69 -12.1273 66.7975 -14.25 64.0714 -14.25H49.8915C49.5192 -14.25 49.1776 -14.4569 49.0052 -14.787L48.1768 -16.3727C47.3451 -17.9906 45.6355 -19 43.7719 -19H25.2281C23.3645 -19 21.6549 -17.9906 20.8232 -16.3727ZM64.0023 1.0648C64.0397 0.4882 63.5822 0 63.0044 0H5.99556C5.4178 0 4.96025 0.4882 4.99766 1.0648L8.19375 50.3203C8.44018 54.0758 11.6746 57 15.5712 57H53.4288C57.3254 57 60.5598 54.0758 60.8062 50.3203L64.0023 1.0648Z"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_35_22">
+        <rect fill="white" height="57" width="69"></rect>
+      </clipPath>
+    </defs>
+  </svg>
+                </button>
+              </div>
+        `;
+
+        wishlist.appendChild(productDiv);
+      });
+    } else {
+      const emptyWishlist = document.createElement("div");
+
+      emptyWishlist.innerHTML = `
+      <div>
+        <p> Your wishlist is empty </p>
+      </div>
+      `;
+      wishlist.appendChild(emptyWishlist);
+    }
+  } else {
+    const emptyWishlist = document.createElement("div");
+
+    emptyWishlist.innerHTML = `
+    <div>
+      <p> Your wishlist is empty </p>
+    </div>
+    `;
+    wishlist.appendChild(emptyWishlist);
+  }
+};
+
+const checkIfProductInWishlist = (id) => {
+  if (loggedUser) {
+    const user = userData.find((user) => user.id === loggedUser.id);
+
+    if (user.wishList.find((product) => product.id === id)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+};
+
+const renderProductsList = (category) => {
+  const productsList = document.querySelector(".products-list");
 
   // filter the products according to the category
   const filteredProducts = productsData.filter((product) => {
@@ -823,9 +1068,19 @@ const renderProductsList = () => {
                 gap:1rem;
               "
             >
-              <button class="wishlist-btn">
-                <svg viewBox="0 0 17.503 15.625" height="20.625" width="20.503" xmlns="http://www.w3.org/2000/svg" class="icon">
-                  <path transform="translate(0 0)" d="M8.752,15.625h0L1.383,8.162a4.824,4.824,0,0,1,0-6.762,4.679,4.679,0,0,1,6.674,0l.694.7.694-.7a4.678,4.678,0,0,1,6.675,0,4.825,4.825,0,0,1,0,6.762L8.752,15.624ZM4.72,1.25A3.442,3.442,0,0,0,2.277,2.275a3.562,3.562,0,0,0,0,5l6.475,6.556,6.475-6.556a3.563,3.563,0,0,0,0-5A3.443,3.443,0,0,0,12.786,1.25h-.01a3.415,3.415,0,0,0-2.443,1.038L8.752,3.9,7.164,2.275A3.442,3.442,0,0,0,4.72,1.25Z" id="Fill"></path>
+              <button class="wishlist-btn" onclick="addToWishlist(${
+                product.id
+              })"
+              >
+                <svg viewBox="0 0 17.503 15.625" height="20.625" width="20.503" xmlns="http://www.w3.org/2000/svg" class="icon"
+                  style="fill: ${
+                    checkIfProductInWishlist(product.id) ? "red" : "black"
+                  }"
+
+                >
+                  <path 
+                  
+                   transform="translate(0 0)" d="M8.752,15.625h0L1.383,8.162a4.824,4.824,0,0,1,0-6.762,4.679,4.679,0,0,1,6.674,0l.694.7.694-.7a4.678,4.678,0,0,1,6.675,0,4.825,4.825,0,0,1,0,6.762L8.752,15.624ZM4.72,1.25A3.442,3.442,0,0,0,2.277,2.275a3.562,3.562,0,0,0,0,5l6.475,6.556,6.475-6.556a3.563,3.563,0,0,0,0-5A3.443,3.443,0,0,0,12.786,1.25h-.01a3.415,3.415,0,0,0-2.443,1.038L8.752,3.9,7.164,2.275A3.442,3.442,0,0,0,4.72,1.25Z" id="Fill"></path>
                 </svg>
               </button>
             
@@ -954,6 +1209,7 @@ const Register = (event) => {
     job,
     password,
     admin: false,
+    wishList: [],
   };
   let errorLog = [];
 
@@ -1051,13 +1307,17 @@ window.onload = async () => {
   await getOrders();
 
   const initialRoute = await getRouteFromUrl();
-  showPage(initialRoute);
+
+  if (!!initialRoute) {
+    showPage(initialRoute);
+  } else {
+    window.location.hash = "home";
+  }
 
   // if user logged in remove the button and login buttons and make a <p> tag with the name
   const authButtons = document.querySelector(".auth-buttons");
 
   if (loggedUser) {
-    renderCart();
     authButtons.innerHTML = `
     <div
       style="
@@ -1066,7 +1326,7 @@ window.onload = async () => {
         align-items: center;
         gap:1rem;
       "
-    >
+    >    
       <button class="btn" type="button" onclick="openModal()">
         <strong>CART</strong>
         <div id="container-stars">
@@ -1078,11 +1338,18 @@ window.onload = async () => {
           <div class="circle"></div>
         </div>
       </button>
+
+
+      <a onclick="openWishlistModal()"
+        style="cursor: pointer;"
+      >
+        Wishlist
+      </a>
       
       ${loggedUser.admin ? `<a href="#admin-panel">Admin Panel</a>` : ""}
       <a href="#profile"> ${loggedUser.name} </a>
       <button class="Btn"
-        onclick="localStorage.removeItem('loggedUser'); window.location.reload();"
+        onclick="localStorage.removeItem('loggedUser'); showPage('home'); window.location.reload();"
       >
         <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>  
       </button>
@@ -1131,15 +1398,4 @@ window.onload = async () => {
     // uncheck the admin checkbox
     isAdmin.checked = false;
   });
-
-  const loginForm = document.querySelector(".login form");
-  loginForm.addEventListener("submit", Login);
-
-  const addProductForm = document.querySelector(".add-product form");
-  addProductForm.addEventListener("submit", AddProduct);
-
-  const addCategoryForm = document.querySelector(
-    ".admin-panel .add-category form"
-  );
-  addCategoryForm.addEventListener("submit", AddCategory);
 };

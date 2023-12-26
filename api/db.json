@@ -6,7 +6,8 @@
       "job": "FullStack",
       "password": "123456",
       "admin": true,
-      "id": 1
+      "id": 1,
+      "wishList": []
     },
     {
       "name": "Momen Khaled",
@@ -14,7 +15,8 @@
       "job": "Freelancer",
       "password": "Mo2men@2468",
       "admin": true,
-      "id": 7
+      "id": 7,
+      "wishList": []
     },
     {
       "name": "Ali Mamdouh",
@@ -22,7 +24,8 @@
       "job": "Backend",
       "password": "Ali@2468",
       "admin": false,
-      "id": 8
+      "id": 8,
+      "wishList": []
     },
     {
       "name": "Mahmoud Ahmed",
@@ -30,7 +33,8 @@
       "job": "Freelancer",
       "password": "Hoda@2468",
       "admin": false,
-      "id": 9
+      "id": 9,
+      "wishList": []
     },
     {
       "name": "Mahmoud Ahmed",
@@ -38,45 +42,237 @@
       "job": "Freelancer",
       "password": "Hoda@2468",
       "admin": false,
-      "id": 10
+      "id": 10,
+      "wishList": []
+    },
+    {
+      "name": "Ahmed Mamdouh",
+      "email": "ahmah@gmail.com",
+      "job": "diver",
+      "password": "Ahmed@2468",
+      "admin": false,
+      "id": 11,
+      "wishList": []
+    },
+    {
+      "name": "Hazem Khaled",
+      "email": "hazoma@gmail.com",
+      "job": "Driver",
+      "password": "Hazem@2468",
+      "admin": false,
+      "wishList": [
+        {
+          "name": "Green Paper",
+          "image": "https://picsum.photos/id/233/300/200",
+          "category": "Food ",
+          "price": "10",
+          "description": "a very green paper",
+          "quantity": "900",
+          "id": 4
+        }
+      ],
+      "id": 12
+    },
+    {
+      "name": "Abdalla Ahmed",
+      "email": "abd@gmail.com",
+      "job": "Driver",
+      "password": "Abdallah@2468",
+      "admin": false,
+      "wishList": [],
+      "id": 13
+    },
+    {
+      "name": "Mohamed Hassan",
+      "email": "mohamed@gmail.com",
+      "job": "Chef",
+      "password": "#Mo123123",
+      "admin": false,
+      "wishList": [
+        {
+          "name": "Laptop new generation",
+          "image": "https://avatars.mds.yandex.net/i?id=f0dd65f2f320d8af7387f24af8c348d20b0ff96d-9182206-images-thumbs&n=13",
+          "category": "Electronics",
+          "price": "15000",
+          "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
+          "quantity": "10",
+          "id": 2
+        },
+        {
+          "name": "Sweet shirt",
+          "image": "https://avatars.mds.yandex.net/i?id=c3cbb10b404e6051ef57de190c48901bde61fd60-5220334-images-thumbs&n=13",
+          "category": "Clothes",
+          "price": "200",
+          "description": "good for the winter",
+          "quantity": "10",
+          "id": 3
+        }
+      ],
+      "id": 14
     }
   ],
   "products": [
     {
       "name": "PC",
-      "image": "https://picsum.photos/id/230/300/200",
-      "category": "tech",
+      "image": "https://avatars.mds.yandex.net/i?id=fa97198b57dd35c8a8b1f26902cf69cd6f60826c-9269077-images-thumbs&n=13",
+      "category": "Electronics",
       "price": "10000",
       "description": "Core i7, 16 gb RAM ,265 ROM",
       "quantity": "10",
       "id": 1
     },
     {
-      "name": "Laptop",
-      "image": "https://picsum.photos/id/231/300/200",
-      "category": "tech",
+      "name": "PC the new gen",
+      "image": "https://avatars.mds.yandex.net/i?id=83bb9879d0bf29be2982f7939d27680afdeb0c12-9180497-images-thumbs&n=13",
+      "category": "Electronics",
+      "price": "10000",
+      "description": "Core i5, 16 gb RAM ,128 ROM",
+      "quantity": "50",
+      "id": 10
+    },
+    {
+      "name": "Laptop new generation",
+      "image": "https://avatars.mds.yandex.net/i?id=f0dd65f2f320d8af7387f24af8c348d20b0ff96d-9182206-images-thumbs&n=13",
+      "category": "Electronics",
       "price": "15000",
-      "description": "a very good laptop for designers",
+      "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
       "quantity": "10",
       "id": 2
     },
     {
+      "name": "Mobile 12",
+      "image": "https://avatars.mds.yandex.net/i?id=844b5132a80e12f41bccdb53ede9b801-5232252-images-thumbs&n=13",
+      "category": "Electronics",
+      "price": "15000",
+      "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
+      "quantity": "90",
+      "id": 20
+    },
+    {
+      "name": "Flash Memory",
+      "image": "https://avatars.mds.yandex.net/i?id=ad9661e5adc2aa2b943183dca008be7b-5656335-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "15000",
+      "description": "Samsung 16GB Flash Memory",
+      "quantity": "17",
+      "id": 21
+    },
+    {
       "name": "Sweet shirt",
-      "image": "https://picsum.photos/id/232/300/200",
-      "category": "Clothes ",
+      "image": "https://avatars.mds.yandex.net/i?id=c3cbb10b404e6051ef57de190c48901bde61fd60-5220334-images-thumbs&n=13",
+      "category": "Clothes",
       "price": "200",
       "description": "good for the winter",
       "quantity": "10",
       "id": 3
     },
     {
-      "name": "Green Paper",
-      "image": "https://picsum.photos/id/233/300/200",
-      "category": "Food ",
-      "price": "10",
-      "description": "a very green paper",
-      "quantity": "900",
-      "id": 4
+      "name": "Samsung Laptop",
+      "image": "https://avatars.mds.yandex.net/i?id=c6bd99391924d8cfa7e731d05f296c772a5ee456-10933813-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "15000",
+      "description": "Samsung ATIV Book 9 NP900X3L-K03US",
+      "quantity": "14",
+      "id": 22
+    },
+    {
+      "name": "PC",
+      "image": "https://avatars.mds.yandex.net/i?id=6d9d4e988b9944e445f7709644e0eb9097e8bab2-4521347-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "10000",
+      "description": "Core i7, 16 gb RAM ,265 ROM",
+      "quantity": "10",
+      "id": 11
+    },
+    {
+      "name": "Asus Laptop",
+      "image": "https://avatars.mds.yandex.net/i?id=07bacf7db88b35972830869d591c4de16a9af5f8-10332876-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "15000",
+      "description": "Chromebook C423Na-Dh02 14 Inch Intel Celeron N3350 1.1Ghz",
+      "quantity": "10",
+      "id": 24
+    },
+    {
+      "name": "Mini Laptop",
+      "image": "https://avatars.mds.yandex.net/i?id=560e32c3a49ae3b99f35880340d7e8b14fe413b3-7469517-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "15000",
+      "description": "Panasonic Toughbook 33 (CF-33GEPAZTG)",
+      "quantity": "8",
+      "id": 25
+    },
+    {
+      "name": "Toshiba Laptop",
+      "image": "https://avatars.mds.yandex.net/i?id=beedbdfc086c0aaedf1a57b3e7d8b61172d26d2e-8972573-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "15000",
+      "description": "A01ID Harga di Indonesia pada 17 Feb 2015",
+      "quantity": "12",
+      "id": 26
+    },
+    {
+      "name": "Desktop computer",
+      "image": "https://avatars.mds.yandex.net/i?id=4554a2b9a045fe4233b2f744f54dde3af6c32a5b-8901029-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "10000",
+      "description": "Dell Vostro 3470 Wireless Driver Dell desktop computer, Pc computer",
+      "quantity": "10",
+      "id": 13
+    },
+    {
+      "name": "Gaming PC",
+      "image": "https://avatars.mds.yandex.net/i?id=2fb3222a9dfa1a44cfd21b4306d564ca1b61f202-9156405-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "10000",
+      "description": "Gaming PC Gets a Radical Redesign",
+      "quantity": "10",
+      "id": 14
+    },
+    {
+      "name": "PC For Streaming",
+      "image": "https://avatars.mds.yandex.net/i?id=9ab143499eac2929b4ec5638f9e89747d932ab11-8237885-images-thumbs&n=13",
+      "category": "Electonics ",
+      "price": "10000",
+      "description": "Donate to Help with buying a PC for streaming",
+      "quantity": "15",
+      "id": 15
+    },
+    {
+      "name": "PC",
+      "image": "https://avatars.mds.yandex.net/i?id=fa97198b57dd35c8a8b1f26902cf69cd6f60826c-9269077-images-thumbs&n=13",
+      "category": "Electronics",
+      "price": "10000",
+      "description": "Core i7, 16 gb RAM ,265 ROM",
+      "quantity": "10",
+      "id": 27
+    },
+    {
+      "name": "Tablet the new Gen 4",
+      "image": "https://2.bp.blogspot.com/-tdkufY70WuE/UpNXFyZ_oBI/AAAAAAAAAis/XoggXyU0YFk/s1600/Lenovo-Yoga-Tablets-front-side-angle.jpg",
+      "category": "Electronics",
+      "price": "1200",
+      "description": "A good tablet for designers with a inking & 4 RAM and 256 ROM",
+      "quantity": "100",
+      "id": 29
+    },
+    {
+      "name": "Laptop new generation",
+      "image": "https://avatars.mds.yandex.net/i?id=f0dd65f2f320d8af7387f24af8c348d20b0ff96d-9182206-images-thumbs&n=13",
+      "category": "Electronics",
+      "price": "15000",
+      "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
+      "quantity": "10",
+      "id": 30
+    },
+    {
+      "name": "Mobile 12",
+      "image": "https://avatars.mds.yandex.net/i?id=844b5132a80e12f41bccdb53ede9b801-5232252-images-thumbs&n=13",
+      "category": "Electronics",
+      "price": "15000",
+      "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
+      "quantity": "90",
+      "id": 31
     }
   ],
   "categories": [
@@ -97,7 +293,7 @@
       "id": 5
     },
     {
-      "name": "utils",
+      "name": "Electronics",
       "id": 6
     }
   ],
@@ -170,16 +366,6 @@
       "forUser": "Hossam",
       "products": [
         {
-          "name": "كولمن",
-          "image": "https://picsum.photos/id/235/300/200",
-          "category": "Furniture ",
-          "price": 29900,
-          "description": "كولمن حلو بيحافظ عالحاجه ساقعه",
-          "quantity": 1,
-          "id": 5,
-          "user_id": 7
-        },
-        {
           "name": "Dish Washer ",
           "image": "https://picsum.photos/id/233/300/200",
           "category": "Electonics ",
@@ -231,6 +417,35 @@
       "status": "cancelled",
       "total": 100,
       "id": 13
+    },
+    {
+      "user_id": 14,
+      "forUser": "Mohamed Hassan",
+      "products": [
+        {
+          "name": "Laptop new generation",
+          "image": "https://avatars.mds.yandex.net/i?id=f0dd65f2f320d8af7387f24af8c348d20b0ff96d-9182206-images-thumbs&n=13",
+          "category": "Electronics",
+          "price": "15000",
+          "description": "Alienware 17 R4 - i7-7700HQ/ 16GB/ 180GB SSD/ 1TB HDD",
+          "quantity": 1,
+          "id": 2,
+          "user_id": 14
+        },
+        {
+          "name": "Sweet shirt",
+          "image": "https://avatars.mds.yandex.net/i?id=c3cbb10b404e6051ef57de190c48901bde61fd60-5220334-images-thumbs&n=13",
+          "category": "Clothes",
+          "price": "200",
+          "description": "good for the winter",
+          "quantity": 4,
+          "id": 3,
+          "user_id": 14
+        }
+      ],
+      "status": "cancelled",
+      "total": 15800,
+      "id": 14
     }
   ]
 }
